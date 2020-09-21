@@ -1,6 +1,3 @@
 {
-  # Add your NixOS modules here
-  #
-  # my-module = ./my-module;
+  reddit-top-rss = ./services/web-apps/reddit-top-rss.nix;
 }
-

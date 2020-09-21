@@ -11,8 +11,9 @@
 {
   # The `lib`, `modules`, and `overlay` names are special
   # lib = import ./lib { inherit pkgs; }; # functions
-  # modules = import ./modules; # NixOS modules
+  modules = import ./modules; # NixOS modules
   # overlays = import ./overlays; # nixpkgs overlays
 
+  komga = pkgs.callPackage ./pkgs/komga { };
   reddit-top-rss = pkgs.callPackage ./pkgs/reddit-top-rss { };
 }
