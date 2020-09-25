@@ -1,11 +1,11 @@
 { stdenv, fetchurl, bash, jre }:
 stdenv.mkDerivation rec {
   pname = "komga";
-  version = "0.43.4";
+  version = "0.62.6";
 
   src = fetchurl {
     url = "https://github.com/gotson/komga/releases/download/v${version}/komga-${version}.jar";
-    sha256 = "1wnpy606cav7yr1yihpfgpfbqy97mxpngrm9xyy66i6vvvd39vn6";
+    sha256 = "09pxwvww9ihknbcnni3wfz41cwr8mir2mfabvmahks5nrn2fs9ny";
   };
 
   preferLocalBuild = true;
