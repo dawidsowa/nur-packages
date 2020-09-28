@@ -1,0 +1,3 @@
+{
+  xcompose = ./services/xcompose.nix;
+}
