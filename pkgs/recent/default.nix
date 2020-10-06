@@ -1,8 +1,10 @@
-pkgs.stdenv.mkDerivation {
+{ stdenv, fetchFromGitHub, python3 }:
+
+stdenv.mkDerivation {
   pname = "add-to-recent";
   version = "2020-10-05";
 
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     repo = "recent";
     owner = "dawidsowa";
     rev = "329e832fb571eb17ddb2c34804f4871cbed223b6";
@@ -10,7 +12,7 @@ pkgs.stdenv.mkDerivation {
   };
 
   buildInputs = [
-    (pkgs.python3.withPackages (ps: [ ps.pygobject3 ]))
+    (python3.withPackages (ps: [ ps.pygobject3 ]))
   ];
 
   installPhase = ''
