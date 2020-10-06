@@ -15,10 +15,8 @@ in
 
     config = mkIf cfg.enable {
       dconf.settings =
-        let dconfPath = "org/gnome/terminal/legacy";
-        in
         {
-          keybindings = cfg.keybindings;
+          "org/gnome/terminal/legacy/keybindings" = cfg.keybindings;
         };
     };
   }

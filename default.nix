@@ -15,5 +15,5 @@
   # overlays = import ./overlays; # nixpkgs overlays
 
   komga = pkgs.callPackage ./pkgs/komga { };
-  reddit-top-rss = pkgs.callPackage ./pkgs/reddit-top-rss { };
+  recent = pkgs.callPackage ./pkgs/recent { };
 }
