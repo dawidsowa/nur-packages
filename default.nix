@@ -16,4 +16,8 @@
 
   komga = pkgs.callPackage ./pkgs/komga { };
   recent = pkgs.callPackage ./pkgs/recent { };
+  hide-minimized = pkgs.callPackage ./pkgs/gnome-extensions/hide-minimized { };
+  maximized-by-default = pkgs.callPackage ./pkgs/gnome-extensions/maximized-by-default { };
+  recents = pkgs.callPackage ./pkgs/gnome-extensions/recents { };
+
 }
