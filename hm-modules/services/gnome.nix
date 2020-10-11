@@ -19,6 +19,7 @@ in
         example = ''with pkgs.gnomeExtensions; [
             dash-to-panel
             arc-menu
+            "
         ]
         '';
       };
