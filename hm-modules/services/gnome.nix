@@ -7,6 +7,8 @@ let
   extensionsUuids = map (x: if (strings.isStorePath x) then x.uuid else x) cfg.extensions;
   extensionsPackages = builtins.filter strings.isStorePath cfg.extensions;
 
+  customBindings = builtins.listToAttrs (imap0 (i: v: nameValuePair "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom${toString i}" v) cfg.customShortcuts);
+
   mapGnomeSettings = n: v: nameValuePair ("org/gnome/" + n) v;
 in
 {
@@ -23,6 +25,9 @@ in
         ]
         '';
       };
+      customShortcuts = mkOption {
+        default = [ ];
+      };
       settings = mkOption {
         description = "Gnome settings";
         default = { };
@@ -32,8 +37,11 @@ in
   config = {
     home.packages = extensionsPackages;
 
-    dconf.settings = {
+    dconf.settings = (mapAttrs' mapGnomeSettings cfg.settings) //
+      customBindings
+      // {
       "org/gnome/shell".enabled-extensions = extensionsUuids;
-    } // (mapAttrs' mapGnomeSettings cfg.settings);
+      "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = map (n: "/${n}/") (builtins.attrNames customBindings);
+    };
   };
 }
